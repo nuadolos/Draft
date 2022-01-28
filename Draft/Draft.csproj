@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A4E9331-A847-4D5B-8954-535C5F26A4CE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Draft</RootNamespace>
+    <AssemblyName>Draft</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="UI\Styles\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Entities\Agent.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AgentPriorityHistory.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AgentType.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DraftModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DraftModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DraftModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DraftModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DraftModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Material.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MaterialCountHistory.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MaterialSupplier.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MaterialType.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Product.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProductCostHistory.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProductMaterial.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProductSale.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProductType.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Shop.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Supplier.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sysdiagrams.cs">
+      <DependentUpon>DraftModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\AddEditMaterial.xaml.cs">
+      <DependentUpon>AddEditMaterial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MaterialView.xaml.cs">
+      <DependentUpon>MaterialView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\ChangeMinCount.xaml.cs">
+      <DependentUpon>ChangeMinCount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\MatSupp.xaml.cs">
+      <DependentUpon>MatSupp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Pagination.cs" />
+    <Compile Include="Utilities\Transition.cs" />
+    <Page Include="UI\Pages\AddEditMaterial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Pages\MaterialView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\ChangeMinCount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="UI\Styles\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UI\Windows\MatSupp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Entities\DraftModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DraftModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\DraftModel.edmx.diagram">
+      <DependentUpon>DraftModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="UI\SystemImages\picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UI\SystemImages\Черновик.ico" />
+    <Resource Include="UI\SystemImages\Черновик.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UI\materials\material_1.jpeg" />
+    <Resource Include="UI\materials\material_10.jpeg" />
+    <Resource Include="UI\materials\material_11.jpeg" />
+    <Resource Include="UI\materials\material_12.jpeg" />
+    <Resource Include="UI\materials\material_13.jpeg" />
+    <Resource Include="UI\materials\material_14.jpeg" />
+    <Resource Include="UI\materials\material_15.jpeg" />
+    <Resource Include="UI\materials\material_16.jpeg" />
+    <Resource Include="UI\materials\material_17.jpeg" />
+    <Resource Include="UI\materials\material_18.jpeg" />
+    <Resource Include="UI\materials\material_19.jpeg" />
+    <Resource Include="UI\materials\material_2.jpeg" />
+    <Resource Include="UI\materials\material_20.jpeg" />
+    <Resource Include="UI\materials\material_21.jpeg" />
+    <Resource Include="UI\materials\material_22.jpeg" />
+    <Resource Include="UI\materials\material_23.jpeg" />
+    <Resource Include="UI\materials\material_24.jpeg" />
+    <Resource Include="UI\materials\material_25.jpeg" />
+    <Resource Include="UI\materials\material_26.png" />
+    <Resource Include="UI\materials\material_3.jpeg" />
+    <Resource Include="UI\materials\material_4.jpeg" />
+    <Resource Include="UI\materials\material_5.jpeg" />
+    <Resource Include="UI\materials\material_6.jpeg" />
+    <Resource Include="UI\materials\material_7.jpeg" />
+    <Resource Include="UI\materials\material_8.jpeg" />
+    <Resource Include="UI\materials\material_9.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entities\DraftModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DraftModel.Context.cs</LastGenOutput>
+      <DependentUpon>DraftModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entities\DraftModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DraftModel.edmx</DependentUpon>
+      <LastGenOutput>DraftModel.cs</LastGenOutput>
+    </Content>
+    <Resource Include="UI\SystemImages\AddIcon.png" />
+    <Resource Include="UI\SystemImages\DeleteIcon.png" />
+    <Resource Include="UI\SystemImages\EditIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
