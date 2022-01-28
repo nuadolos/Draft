@@ -125,8 +125,8 @@ namespace Draft.UI.Pages
         {
             if (SearchTBox.Text != "Введите для поиска" && SearchTBox.Text != null)
             {
-                SortingProduct();
                 pagination?.Zeroing();
+                SortingProduct();
             }
         }
 
@@ -143,26 +143,26 @@ namespace Draft.UI.Pages
 
         private void TypesCBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SortingProduct();
             pagination?.Zeroing();
+            SortingProduct();
         }
 
         private void SortCBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SortingProduct();
             pagination?.Zeroing();
+            SortingProduct();
         }
 
         private void DecreasingCheck_Checked(object sender, RoutedEventArgs e)
         {
-            SortingProduct();
             pagination?.Zeroing();
+            SortingProduct();
         }
 
         private void DecreasingCheck_Unchecked(object sender, RoutedEventArgs e)
         {
-            SortingProduct();
             pagination?.Zeroing();
+            SortingProduct();
         }
 
         #endregion

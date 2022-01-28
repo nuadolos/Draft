@@ -60,14 +60,14 @@
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="ListViewItem">
-                                    <Border Style="{StaticResource BorderLopushok}" 
+                                    <Border Style="{StaticResource BorderDraft}" 
                                         x:Name="BorderLV">
                                         <WrapPanel>
                                             <TextBlock Text="{Binding CheckImage, TargetNullValue=/SystemImages/picture.png}"
                                                    Visibility="Collapsed" x:Name="ImagePath1"/>
                                             <TextBlock Text="{Binding Text, ElementName=ImagePath1, StringFormat=..{0}}"
                                                    Visibility="Collapsed" x:Name="ImagePath2"/>
-                                            <Border Style="{StaticResource BorderLopushok}"
+                                            <Border Style="{StaticResource BorderDraft}"
                                                 x:Name="BorderImage">
                                                 <Image Source="{Binding Text, ElementName=ImagePath2}"
                                                Height="150" Width="150" Stretch="Uniform" Margin="10"/>

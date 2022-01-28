@@ -53,6 +53,14 @@ namespace Draft.UI.Pages
                 ViewMatSupp.ItemsSource = lMatSupplier;
             }
 
+            if (addMaterial.MinCount > addMaterial.CountInStock)
+            {
+                decimal a = Math.Ceiling((decimal)(addMaterial.MinCount - addMaterial.CountInStock)/addMaterial.CountInPack);
+
+                SumPurchaseBlock.Visibility = Visibility.Visible;
+                SumPurchaseBlock.Text = $"Сумма закупки: {a * addMaterial.Cost} руб.";
+            }
+
             if (!string.IsNullOrWhiteSpace(transferProd?.Image))
             {
                 ImageMaterial.Source = (ImageSource)new ImageSourceConverter().ConvertFromString($@"{Path}\{transferProd.Image}");
@@ -76,7 +84,7 @@ namespace Draft.UI.Pages
                 error.AppendLine("Укажите наименование");
             if (addMaterial.MaterialType == null)
                 error.AppendLine("Выберите тип материала");
-            if (!double.TryParse(addMaterial.CountInStock.ToString(), out _))
+            if (!int.TryParse(addMaterial.CountInStock.ToString(), out _))
                 error.AppendLine("Укажите кол-во материалов на складе");
             if (string.IsNullOrWhiteSpace(addMaterial.Unit))
                 error.AppendLine("Укажите единицу измерения");
@@ -171,26 +179,16 @@ namespace Draft.UI.Pages
 
         #endregion
 
-        #region Добавление, редактирование и удаление поставщиков, прикрепленных к материалу
+        #region Добавление и удаление поставщиков, прикрепленных к материалу
 
-        private void OpenMatSupp(MaterialSupplier tempPrMat = null, int id = 0)
+        private void AddMatSupp_Click(object sender, RoutedEventArgs e)
         {
-            MatSupp supplair = new MatSupp(tempPrMat, id);
+            MatSupp supplair = new MatSupp(addMaterial.ID);
 
             if (supplair.ShowDialog() == true)
             {
                 ViewMatSupp.ItemsSource = lMatSupplier;
             }
-        }
-
-        private void AddMatSupp_Click(object sender, RoutedEventArgs e)
-        {
-            OpenMatSupp(id: addMaterial.ID);
-        }
-
-        private void EditMatSupp_Click(object sender, RoutedEventArgs e)
-        {
-            OpenMatSupp(ViewMatSupp.SelectedItem as MaterialSupplier);
         }
 
         private void DeleteMatSupp_Click(object sender, RoutedEventArgs e)

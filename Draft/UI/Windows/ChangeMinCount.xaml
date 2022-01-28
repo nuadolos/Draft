@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Draft.UI.Windows"
         mc:Ignorable="d"
-        Title="ChangeMinCount" Height="450" Width="800">
+        Title="Изменение мин. количества" Icon="/UI/SystemImages/Черновик.ico"
+        Height="200" Width="410" MinHeight="200" MinWidth="410" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock FontSize="24" Text="Изменение мин. количества"/>
+
+        <TextBox Grid.Row="1" TextAlignment="Right"
+                 Width="300" FontSize="16"
+                 x:Name="EditMinCount"/>
+
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Изменить"
+                x:Name="SaveBtn" Click="SaveBtn_Click"/>
+            <Button Content="Отмена"
+                x:Name="CancelBtn" Click="CancelBtn_Click"/>
+        </WrapPanel>
     </Grid>
 </Window>

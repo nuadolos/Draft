@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Draft.UI.Windows"
         mc:Ignorable="d"
-        Title="MatSupp" Height="450" Width="800">
+        Title="Добавление поставщика" Icon="/UI/SystemImages/Черновик.ico"
+        Height="250" Width="410" MinHeight="250" MinWidth="410">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock HorizontalAlignment="Center" FontSize="24"
+                   Style="{StaticResource TBlockInLV}" Text="Добавление поставщика">
+        </TextBlock>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <WrapPanel>
+                <TextBlock Text="Поставщики:" FontSize="18"
+                           Width="140" TextAlignment="Right"/>
+                <ComboBox SelectedItem="{Binding Supplier}"
+                    DisplayMemberPath="Title" SelectedValuePath="ID"
+                    x:Name="SupplierCmb"/>
+            </WrapPanel>
+        </StackPanel>
+
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Сохранить"
+                    x:Name="AddSupplierBtn" Click="AddSupplierBtn_Click"/>
+            <Button Content="Отмена"
+                    x:Name="CancelBtn" Click="CancelBtn_Click"/>
+        </WrapPanel>
     </Grid>
 </Window>
